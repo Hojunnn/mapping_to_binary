@@ -20,10 +20,11 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{A595EAB0-4C82-43D6-8E06-BC17DF1E1FFD}</ProjectGuid>
+    <ProjectGuid>{5A4283B7-55C4-470C-A6EB-2B5D68EAF8DA}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>grdaduateproject2</RootNamespace>
+    <RootNamespace>Project2</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+    <ProjectName>ext_txt_mapbin</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -145,7 +146,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="map_bin.cpp" />
+    <ClCompile Include="ext_txt_mapbin.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

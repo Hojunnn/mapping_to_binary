@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="map_bin.cpp">
+    <ClCompile Include="ext_txt_mapbin.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

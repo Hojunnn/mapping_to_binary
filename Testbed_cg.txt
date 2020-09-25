@@ -1,0 +1,824 @@
+
+The roots of the following graphs are functions that: 
+- Are never called ... OR ...
+- Are called indirectly and are not listed among the functions called
+  indirectly in the configuration file specified with --i_cfg=file.
+  Run "perldoc call_graph.pl" for more information.
+======================================================================
+
+_OSEventNameGet : wcs = 14
+|  _OS_CPU_SR_Restore : wcs = ???
+|  _OS_CPU_SR_Save : wcs = ???
+|  _OS_StrLen : wcs = 6
+
+I$$DIV : wcs = 0
+
+_ADCINT_ISR : wcs = 6
+
+_App_TaskPing : wcs = 72
+|  _CFI : wcs = 64
+|  |  _RPC : wcs = 2
+|  |  |  I$$MOD : wcs = 0
+|  |  |  _getRPC : wcs = ???
+|  |  _puts : wcs = 60
+|  |  |  _fputs : wcs = 54
+|  |  |  |  ___TI_doflush : wcs = 6
+|  |  |  |  |  _write : wcs = 2
+|  |  |  |  ___TI_wrt_ok : wcs = 36
+|  |  |  |  |  _fseek : wcs = 14
+|  |  |  |  |  |  ___TI_doflush : wcs = 6
+|  |  |  |  |  |  |  <repeat ...>
+|  |  |  |  |  |  _lseek : wcs = 2
+|  |  |  |  |  _setvbuf : wcs = 30
+|  |  |  |  |  |  _free : wcs = 6
+|  |  |  |  |  |  |  _free_list_insert : wcs = 2
+|  |  |  |  |  |  |  _free_list_remove : wcs = 2
+|  |  |  |  |  |  _malloc : wcs = 18
+|  |  |  |  |  |  |  ( _aligned_alloc
+                       _memalign ) : wcs = 14
+|  |  |  |  |  |  |  |  _free_list_insert : wcs = 2
+|  |  |  |  |  |  |  |  _free_list_remove : wcs = 2
+|  |  |  |  |  |  |  |  _split : wcs = 6
+|  |  |  |  |  |  |  |  |  _free_list_insert : wcs = 2
+|  |  |  |  |  |  |  |  |  _free_list_remove : wcs = 2
+|  |  |  |  _memchr : wcs = 2
+|  |  |  |  _memcpy : wcs = 2
+|  |  |  |  _strlen : wcs = 2
+|  |  |  |  _write : wcs = 2
+|  _OSSemPend : wcs = 18
+|  |  _OS_CPU_SR_Restore : wcs = ???
+|  |  _OS_CPU_SR_Save : wcs = ???
+|  |  _OS_EventTaskRemove : wcs = 8
+|  |  _OS_EventTaskWait : wcs = 6
+|  |  _OS_Sched : wcs = 8
+|  |  |  _OS_CPU_SR_Restore : wcs = ???
+|  |  |  _OS_CPU_SR_Save : wcs = ???
+|  |  |  _OS_SchedNew : wcs = 4
+|  _RPC : wcs = 2
+|  |  <repeat ...>
+|  _puts : wcs = 60
+|  |  <repeat ...>
+
+_App_TaskPong : wcs = 64
+|  _BSP_LED_Toggle : wcs = 4
+|  _OSTimeDlyHMSM : wcs = 22
+|  |  _OSTimeDly : wcs = 14
+|  |  |  _OS_CPU_SR_Restore : wcs = ???
+|  |  |  _OS_CPU_SR_Save : wcs = ???
+|  |  |  _OS_Sched : wcs = 8
+|  |  |  |  <repeat ...>
+|  _RPC : wcs = 2
+|  |  <repeat ...>
+|  _puts : wcs = 60
+|  |  <repeat ...>
+
+_App_TaskStart : wcs = 58
+|  _BSP_LED_Off : wcs = 4
+|  _BSP_Tick_Init : wcs = 20
+|  |  _BSP_CPU_ClkFreq : wcs = 2
+|  |  _BSP_OS_TIMER2_TickInit : wcs = 14
+|  |  |  _BSP_IntEn : wcs = 10
+|  |  |  |  _CPU_IntSrcEn : wcs = 4
+|  |  |  |  |  _CPU_SR_Restore : wcs = ???
+|  |  |  |  |  _CPU_SR_Save : wcs = ???
+|  |  |  |  _CPU_SR_Restore : wcs = ???
+|  |  |  |  _CPU_SR_Save : wcs = ???
+|  _OSSemCreate : wcs = 12
+|  |  _OS_CPU_SR_Restore : wcs = ???
+|  |  _OS_CPU_SR_Save : wcs = ???
+|  |  _OS_EventWaitListInit : wcs = 6
+|  _OSSemPost : wcs = 34
+|  |  _OS_CPU_SR_Restore : wcs = ???
+|  |  _OS_CPU_SR_Save : wcs = ???
+|  |  _OS_EventTaskRdy : wcs = 28
+|  |  |  _OS_EventTaskRemove : wcs = 8
+|  |  |  _OS_EventTaskRemoveMulti : wcs = 14
+|  |  _OS_Sched : wcs = 8
+|  |  |  <repeat ...>
+|  _OSTaskCreateExt : wcs = 36
+|  |  _OSTaskStkInit : wcs = 12
+|  |  |  _OS_CPU_GetST0 : wcs = ???
+|  |  |  _OS_CPU_GetST1 : wcs = ???
+|  |  _OS_CPU_SR_Restore : wcs = ???
+|  |  _OS_CPU_SR_Save : wcs = ???
+|  |  _OS_Sched : wcs = 8
+|  |  |  <repeat ...>
+|  |  _OS_TCBInit : wcs = 16
+|  |  |  _OSTCBInitHook : wcs = 4
+|  |  |  _OSTaskCreateHook : wcs = 4
+|  |  |  _OS_CPU_SR_Restore : wcs = ???
+|  |  |  _OS_CPU_SR_Save : wcs = ???
+|  |  _OS_TaskStkClr : wcs = 8
+|  _OSTimeDlyHMSM : wcs = 22
+|  |  <repeat ...>
+
+_BSP_ExtIntDis : wcs = 4
+|  _CPU_SR_Restore : wcs = ???
+|  _CPU_SR_Save : wcs = ???
+
+_BSP_ExtIntEn : wcs = 4
+|  _CPU_SR_Restore : wcs = ???
+|  _CPU_SR_Save : wcs = ???
+
+_BSP_IntDis : wcs = 10
+|  _CPU_IntSrcDis : wcs = 4
+|  |  _CPU_SR_Restore : wcs = ???
+|  |  _CPU_SR_Save : wcs = ???
+|  _CPU_SR_Restore : wcs = ???
+|  _CPU_SR_Save : wcs = ???
+
+_BSP_IntHandlerDummy : wcs = 44
+|  _BSP_IntAck : wcs = 14
+|  |  _BSP_IntEn : wcs = 10
+|  |  |  <repeat ...>
+|  _CPU_SR_Restore : wcs = ???
+|  _CPU_SR_Save : wcs = ???
+|  _OSIntEnter : wcs = 2
+|  _OSIntExit : wcs = 8
+|  |  _OS_CPU_SR_Restore : wcs = ???
+|  |  _OS_CPU_SR_Save : wcs = ???
+|  |  _OS_SchedNew : wcs = 4
+
+_BSP_LED_On : wcs = 4
+
+_BSP_OS_TIMER2_TickHandler : wcs = 38
+|  _BSP_IntEn : wcs = 10
+|  |  <repeat ...>
+|  _CPU_SR_Restore : wcs = ???
+|  _CPU_SR_Save : wcs = ???
+|  _OSIntEnter : wcs = 2
+|  _OSIntExit : wcs = 8
+|  |  <repeat ...>
+|  _OSTimeTick : wcs = 8
+|  |  _OSTimeTickHook : wcs = 2
+|  |  _OS_CPU_SR_Restore : wcs = ???
+|  |  _OS_CPU_SR_Save : wcs = ???
+
+_CPU_CntTrailZeros : wcs = 6
+|  _CPU_CntLeadZeros : wcs = ???
+
+_CPU_CntTrailZeros08 : wcs = 10
+|  _CPU_CntLeadZeros08 : wcs = 4
+|  |  _CPU_CntLeadZeros : wcs = ???
+
+_CPU_CntTrailZeros16 : wcs = 10
+|  _CPU_CntLeadZeros16 : wcs = 4
+|  |  _CPU_CntLeadZeros : wcs = ???
+
+_CPU_CntTrailZeros32 : wcs = 14
+|  _CPU_CntLeadZeros32 : wcs = 6
+
+_CPU_IntSrcPendClr : wcs = 4
+
+_CPU_PopCnt32 : wcs = 10
+
+_CPU_SW_Exception : wcs = 2
+
+_DATALOG_ISR : wcs = 6
+
+_DINTCH1_ISR : wcs = 6
+
+_DINTCH2_ISR : wcs = 6
+
+_DINTCH3_ISR : wcs = 6
+
+_DINTCH4_ISR : wcs = 6
+
+_DINTCH5_ISR : wcs = 6
+
+_DINTCH6_ISR : wcs = 6
+
+_ECAN0INTA_ISR : wcs = 6
+
+_ECAN0INTB_ISR : wcs = 6
+
+_ECAN1INTA_ISR : wcs = 6
+
+_ECAN1INTB_ISR : wcs = 6
+
+_ECAP1_INT_ISR : wcs = 6
+
+_ECAP2_INT_ISR : wcs = 6
+
+_ECAP3_INT_ISR : wcs = 6
+
+_ECAP4_INT_ISR : wcs = 6
+
+_ECAP5_INT_ISR : wcs = 6
+
+_ECAP6_INT_ISR : wcs = 6
+
+_EMUINT_ISR : wcs = 6
+
+_EPWM1_INT_ISR : wcs = 6
+
+_EPWM1_TZINT_ISR : wcs = 6
+
+_EPWM2_INT_ISR : wcs = 6
+
+_EPWM2_TZINT_ISR : wcs = 6
+
+_EPWM3_INT_ISR : wcs = 6
+
+_EPWM3_TZINT_ISR : wcs = 6
+
+_EPWM4_INT_ISR : wcs = 6
+
+_EPWM4_TZINT_ISR : wcs = 6
+
+_EPWM5_INT_ISR : wcs = 6
+
+_EPWM5_TZINT_ISR : wcs = 6
+
+_EPWM6_INT_ISR : wcs = 6
+
+_EPWM6_TZINT_ISR : wcs = 6
+
+_EQEP1_INT_ISR : wcs = 6
+
+_EQEP2_INT_ISR : wcs = 6
+
+_HOSTclose : wcs = 12
+|  ___TI_readmsg : wcs = 6
+|  ___TI_writemsg : wcs = 6
+
+_HOSTlseek : wcs = 14
+|  ___TI_readmsg : wcs = 6
+|  ___TI_writemsg : wcs = 6
+
+_HOSTopen : wcs = 16
+|  ___TI_readmsg : wcs = 6
+|  ___TI_writemsg : wcs = 6
+|  _strlen : wcs = 2
+
+_HOSTread : wcs = 14
+|  ___TI_readmsg : wcs = 6
+|  ___TI_writemsg : wcs = 6
+
+_HOSTrename : wcs = 112
+|  ___TI_readmsg : wcs = 6
+|  ___TI_writemsg : wcs = 6
+|  _strcpy : wcs = 2
+|  _strlen : wcs = 2
+
+_HOSTunlink : wcs = 12
+|  ___TI_readmsg : wcs = 6
+|  ___TI_writemsg : wcs = 6
+|  _strlen : wcs = 2
+
+_HOSTwrite : wcs = 14
+|  ___TI_readmsg : wcs = 6
+|  ___TI_writemsg : wcs = 6
+
+_I2CINT1A_ISR : wcs = 6
+
+_I2CINT2A_ISR : wcs = 6
+
+_ILLEGAL_ISR : wcs = 6
+
+_INT13_ISR : wcs = 6
+
+_INT14_ISR : wcs = 6
+
+_InitEPwm1Example : wcs = 2
+
+_InitEPwm3Example : wcs = 2
+
+_LUF_ISR : wcs = 6
+
+_LVF_ISR : wcs = 6
+
+_MRINTA_ISR : wcs = 6
+
+_MRINTB_ISR : wcs = 6
+
+_MXINTA_ISR : wcs = 6
+
+_MXINTB_ISR : wcs = 6
+
+_NMI_ISR : wcs = 6
+
+_OSEventNameSet : wcs = 8
+|  _OS_CPU_SR_Restore : wcs = ???
+|  _OS_CPU_SR_Save : wcs = ???
+
+_OSEventPendMulti : wcs = 32
+|  _OS_CPU_SR_Restore : wcs = ???
+|  _OS_CPU_SR_Save : wcs = ???
+|  _OS_EventTaskRemoveMulti : wcs = 14
+|  _OS_EventTaskWaitMulti : wcs = 10
+|  _OS_Sched : wcs = 8
+|  |  <repeat ...>
+
+_OSFlagAccept : wcs = 12
+|  _OS_CPU_SR_Restore : wcs = ???
+|  _OS_CPU_SR_Save : wcs = ???
+
+_OSFlagCreate : wcs = 8
+|  _OS_CPU_SR_Restore : wcs = ???
+|  _OS_CPU_SR_Save : wcs = ???
+
+_OSFlagDel : wcs = 36
+|  _OS_CPU_SR_Restore : wcs = ???
+|  _OS_CPU_SR_Save : wcs = ???
+|  _OS_FlagTaskRdy : wcs = 22
+|  |  _OS_FlagUnlink : wcs = 12
+|  _OS_Sched : wcs = 8
+|  |  <repeat ...>
+
+_OSFlagNameGet : wcs = 14
+|  _OS_CPU_SR_Restore : wcs = ???
+|  _OS_CPU_SR_Save : wcs = ???
+|  _OS_StrLen : wcs = 6
+
+_OSFlagNameSet : wcs = 8
+|  _OS_CPU_SR_Restore : wcs = ???
+|  _OS_CPU_SR_Save : wcs = ???
+
+_OSFlagPend : wcs = 38
+|  _OS_CPU_SR_Restore : wcs = ???
+|  _OS_CPU_SR_Save : wcs = ???
+|  _OS_FlagBlock : wcs = 12
+|  _OS_FlagUnlink : wcs = 12
+|  _OS_Sched : wcs = 8
+|  |  <repeat ...>
+
+_OSFlagPendGetFlagsRdy : wcs = 4
+|  _OS_CPU_SR_Restore : wcs = ???
+|  _OS_CPU_SR_Save : wcs = ???
+
+_OSFlagPost : wcs = 38
+|  _OS_CPU_SR_Restore : wcs = ???
+|  _OS_CPU_SR_Save : wcs = ???
+|  _OS_FlagTaskRdy : wcs = 22
+|  |  <repeat ...>
+|  _OS_Sched : wcs = 8
+|  |  <repeat ...>
+
+_OSFlagQuery : wcs = 8
+|  _OS_CPU_SR_Restore : wcs = ???
+|  _OS_CPU_SR_Save : wcs = ???
+
+_OSMemCreate : wcs = 20
+|  _OS_CPU_SR_Restore : wcs = ???
+|  _OS_CPU_SR_Save : wcs = ???
+
+_OSMemGet : wcs = 10
+|  _OS_CPU_SR_Restore : wcs = ???
+|  _OS_CPU_SR_Save : wcs = ???
+
+_OSMemNameGet : wcs = 14
+|  _OS_CPU_SR_Restore : wcs = ???
+|  _OS_CPU_SR_Save : wcs = ???
+|  _OS_StrLen : wcs = 6
+
+_OSMemNameSet : wcs = 8
+|  _OS_CPU_SR_Restore : wcs = ???
+|  _OS_CPU_SR_Save : wcs = ???
+
+_OSMemPut : wcs = 8
+|  _OS_CPU_SR_Restore : wcs = ???
+|  _OS_CPU_SR_Save : wcs = ???
+
+_OSMemQuery : wcs = 8
+|  _OS_CPU_SR_Restore : wcs = ???
+|  _OS_CPU_SR_Save : wcs = ???
+
+_OSQAccept : wcs = 12
+|  _OS_CPU_SR_Restore : wcs = ???
+|  _OS_CPU_SR_Save : wcs = ???
+
+_OSQCreate : wcs = 16
+|  _OS_CPU_SR_Restore : wcs = ???
+|  _OS_CPU_SR_Save : wcs = ???
+|  _OS_EventWaitListInit : wcs = 6
+
+_OSQDel : wcs = 42
+|  _OS_CPU_SR_Restore : wcs = ???
+|  _OS_CPU_SR_Save : wcs = ???
+|  _OS_EventTaskRdy : wcs = 28
+|  |  <repeat ...>
+|  _OS_Sched : wcs = 8
+|  |  <repeat ...>
+
+_OSQFlush : wcs = 8
+|  _OS_CPU_SR_Restore : wcs = ???
+|  _OS_CPU_SR_Save : wcs = ???
+
+_OSQPend : wcs = 22
+|  _OS_CPU_SR_Restore : wcs = ???
+|  _OS_CPU_SR_Save : wcs = ???
+|  _OS_EventTaskRemove : wcs = 8
+|  _OS_EventTaskWait : wcs = 6
+|  _OS_Sched : wcs = 8
+|  |  <repeat ...>
+
+_OSQPendAbort : wcs = 38
+|  _OS_CPU_SR_Restore : wcs = ???
+|  _OS_CPU_SR_Save : wcs = ???
+|  _OS_EventTaskRdy : wcs = 28
+|  |  <repeat ...>
+|  _OS_Sched : wcs = 8
+|  |  <repeat ...>
+
+_OSQPost : wcs = 38
+|  _OS_CPU_SR_Restore : wcs = ???
+|  _OS_CPU_SR_Save : wcs = ???
+|  _OS_EventTaskRdy : wcs = 28
+|  |  <repeat ...>
+|  _OS_Sched : wcs = 8
+|  |  <repeat ...>
+
+_OSQPostFront : wcs = 38
+|  _OS_CPU_SR_Restore : wcs = ???
+|  _OS_CPU_SR_Save : wcs = ???
+|  _OS_EventTaskRdy : wcs = 28
+|  |  <repeat ...>
+|  _OS_Sched : wcs = 8
+|  |  <repeat ...>
+
+_OSQPostOpt : wcs = 38
+|  _OS_CPU_SR_Restore : wcs = ???
+|  _OS_CPU_SR_Save : wcs = ???
+|  _OS_EventTaskRdy : wcs = 28
+|  |  <repeat ...>
+|  _OS_Sched : wcs = 8
+|  |  <repeat ...>
+
+_OSQQuery : wcs = 14
+|  _OS_CPU_SR_Restore : wcs = ???
+|  _OS_CPU_SR_Save : wcs = ???
+
+_OSSchedLock : wcs = 4
+|  _OS_CPU_SR_Restore : wcs = ???
+|  _OS_CPU_SR_Save : wcs = ???
+
+_OSSchedUnlock : wcs = 12
+|  _OS_CPU_SR_Restore : wcs = ???
+|  _OS_CPU_SR_Save : wcs = ???
+|  _OS_Sched : wcs = 8
+|  |  <repeat ...>
+
+_OSSemAccept : wcs = 6
+|  _OS_CPU_SR_Restore : wcs = ???
+|  _OS_CPU_SR_Save : wcs = ???
+
+_OSSemDel : wcs = 40
+|  _OS_CPU_SR_Restore : wcs = ???
+|  _OS_CPU_SR_Save : wcs = ???
+|  _OS_EventTaskRdy : wcs = 28
+|  |  <repeat ...>
+|  _OS_Sched : wcs = 8
+|  |  <repeat ...>
+
+_OSSemPendAbort : wcs = 38
+|  _OS_CPU_SR_Restore : wcs = ???
+|  _OS_CPU_SR_Save : wcs = ???
+|  _OS_EventTaskRdy : wcs = 28
+|  |  <repeat ...>
+|  _OS_Sched : wcs = 8
+|  |  <repeat ...>
+
+_OSSemQuery : wcs = 12
+|  _OS_CPU_SR_Restore : wcs = ???
+|  _OS_CPU_SR_Save : wcs = ???
+
+_OSSemSet : wcs = 8
+|  _OS_CPU_SR_Restore : wcs = ???
+|  _OS_CPU_SR_Save : wcs = ???
+
+_OSStatInit : wcs = 18
+|  _OSTimeDly : wcs = 14
+|  |  <repeat ...>
+|  _OS_CPU_SR_Restore : wcs = ???
+|  _OS_CPU_SR_Save : wcs = ???
+
+_OSTaskChangePrio : wcs = 26
+|  _OS_CPU_SR_Restore : wcs = ???
+|  _OS_CPU_SR_Save : wcs = ???
+|  _OS_Sched : wcs = 8
+|  |  <repeat ...>
+
+_OSTaskCreate : wcs = 34
+|  _OSTaskStkInit : wcs = 12
+|  |  <repeat ...>
+|  _OS_CPU_SR_Restore : wcs = ???
+|  _OS_CPU_SR_Save : wcs = ???
+|  _OS_Sched : wcs = 8
+|  |  <repeat ...>
+|  _OS_TCBInit : wcs = 16
+|  |  <repeat ...>
+
+_OSTaskDelReq : wcs = 8
+|  _OS_CPU_SR_Restore : wcs = ???
+|  _OS_CPU_SR_Save : wcs = ???
+
+_OSTaskNameGet : wcs = 18
+|  _OS_CPU_SR_Restore : wcs = ???
+|  _OS_CPU_SR_Save : wcs = ???
+|  _OS_StrLen : wcs = 6
+
+_OSTaskQuery : wcs = 16
+|  _OS_CPU_SR_Restore : wcs = ???
+|  _OS_CPU_SR_Save : wcs = ???
+|  _OS_MemCopy : wcs = 8
+
+_OSTaskRegGet : wcs = 12
+|  _OS_CPU_SR_Restore : wcs = ???
+|  _OS_CPU_SR_Save : wcs = ???
+
+_OSTaskRegGetID : wcs = 6
+|  _OS_CPU_SR_Restore : wcs = ???
+|  _OS_CPU_SR_Save : wcs = ???
+
+_OSTaskRegSet : wcs = 10
+|  _OS_CPU_SR_Restore : wcs = ???
+|  _OS_CPU_SR_Save : wcs = ???
+
+_OSTaskResume : wcs = 14
+|  _OS_CPU_SR_Restore : wcs = ???
+|  _OS_CPU_SR_Save : wcs = ???
+|  _OS_Sched : wcs = 8
+|  |  <repeat ...>
+
+_OSTaskSwHook : wcs = 2
+
+_OSTimeDlyResume : wcs = 14
+|  _OS_CPU_SR_Restore : wcs = ???
+|  _OS_CPU_SR_Save : wcs = ???
+|  _OS_Sched : wcs = 8
+|  |  <repeat ...>
+
+_OSTimeGet : wcs = 6
+|  _OS_CPU_SR_Restore : wcs = ???
+|  _OS_CPU_SR_Save : wcs = ???
+
+_OSTimeSet : wcs = 6
+|  _OS_CPU_SR_Restore : wcs = ???
+|  _OS_CPU_SR_Save : wcs = ???
+
+_OSVersion : wcs = 2
+
+_OS_TaskIdle : wcs = 8
+|  _OSTaskIdleHook : wcs = 2
+|  _OS_CPU_SR_Restore : wcs = ???
+|  _OS_CPU_SR_Save : wcs = ???
+
+_OS_TaskReturn : wcs = 24
+|  _OSTaskDel : wcs = 22
+|  |  _OSTaskDelHook : wcs = 4
+|  |  _OS_CPU_SR_Restore : wcs = ???
+|  |  _OS_CPU_SR_Save : wcs = ???
+|  |  _OS_Dummy : wcs = 2
+|  |  _OS_EventTaskRemove : wcs = 8
+|  |  _OS_EventTaskRemoveMulti : wcs = 14
+|  |  _OS_FlagUnlink : wcs = 12
+|  |  _OS_Sched : wcs = 8
+|  |  |  <repeat ...>
+|  _OSTaskReturnHook : wcs = 4
+
+_OS_TaskStat : wcs = 30
+|  _OSTaskStatHook : wcs = 2
+|  _OSTaskSuspend : wcs = 16
+|  |  _OS_CPU_SR_Restore : wcs = ???
+|  |  _OS_CPU_SR_Save : wcs = ???
+|  |  _OS_Sched : wcs = 8
+|  |  |  <repeat ...>
+|  _OSTimeDly : wcs = 14
+|  |  <repeat ...>
+|  _OS_CPU_SR_Restore : wcs = ???
+|  _OS_CPU_SR_Save : wcs = ???
+|  _OS_TaskStatStkChk : wcs = 24
+|  |  _OSTaskStkChk : wcs = 14
+|  |  |  _OS_CPU_SR_Restore : wcs = ???
+|  |  |  _OS_CPU_SR_Save : wcs = ???
+
+_PIE_RESERVED : wcs = 6
+
+_RTOSINT_ISR : wcs = 6
+
+_SCIRXINTA_ISR : wcs = 6
+
+_SCIRXINTB_ISR : wcs = 6
+
+_SCIRXINTC_ISR : wcs = 6
+
+_SCITXINTA_ISR : wcs = 6
+
+_SCITXINTB_ISR : wcs = 6
+
+_SCITXINTC_ISR : wcs = 6
+
+_SEQ1INT_ISR : wcs = 6
+
+_SEQ2INT_ISR : wcs = 6
+
+_SPIRXINTA_ISR : wcs = 6
+
+_SPITXINTA_ISR : wcs = 6
+
+_TINT0_ISR : wcs = 6
+
+_USER10_ISR : wcs = 6
+
+_USER11_ISR : wcs = 6
+
+_USER12_ISR : wcs = 6
+
+_USER1_ISR : wcs = 6
+
+_USER2_ISR : wcs = 6
+
+_USER3_ISR : wcs = 6
+
+_USER4_ISR : wcs = 6
+
+_USER5_ISR : wcs = 6
+
+_USER6_ISR : wcs = 6
+
+_USER7_ISR : wcs = 6
+
+_USER8_ISR : wcs = 6
+
+_USER9_ISR : wcs = 6
+
+_WAKEINT_ISR : wcs = 6
+
+_XINT1_ISR : wcs = 6
+
+_XINT2_ISR : wcs = 6
+
+_XINT3_ISR : wcs = 6
+
+_XINT4_ISR : wcs = 6
+
+_XINT5_ISR : wcs = 6
+
+_XINT6_ISR : wcs = 6
+
+_XINT7_ISR : wcs = 6
+
+___TI_cleanup : wcs = 52
+|  ___TI_closefile : wcs = 46
+|  |  ___TI_doflush : wcs = 6
+|  |  |  <repeat ...>
+|  |  _close : wcs = 6
+|  |  _free : wcs = 6
+|  |  |  <repeat ...>
+|  |  _remove : wcs = 36
+|  |  |  _unlink : wcs = 34
+|  |  |  |  _getdevice : wcs = 28
+|  |  |  |  |  _finddevice : wcs = 10
+|  |  |  |  |  |  _strcmp : wcs = 2
+|  |  |  |  |  _strchr : wcs = 2
+|  |  |  |  |  _strncpy : wcs = 2
+
+___TI_heap_check : wcs = 2
+
+___TI_heap_largest_available : wcs = 4
+
+___TI_heap_total_available : wcs = 4
+
+___TI_rd_ok : wcs = 34
+|  _setvbuf : wcs = 30
+|  |  <repeat ...>
+
+__nop : wcs = 2
+
+__register_lock : wcs = 2
+
+__register_unlock : wcs = 2
+
+_c_int00 : wcs = 76
+|  __args_main : wcs = 76
+|  |  _main : wcs = 74
+|  |  |  _BSP_Init : wcs = 12
+|  |  |  |  _BSP_Int_Init : wcs = 10
+|  |  |  |  |  _BSP_IntVectSet : wcs = 6
+|  |  |  |  |  |  _CPU_SR_Restore : wcs = ???
+|  |  |  |  |  |  _CPU_SR_Save : wcs = ???
+|  |  |  |  _BSP_LED_Init : wcs = 2
+|  |  |  |  _BSP_PLL_Init : wcs = 2
+|  |  |  |  _CPU_IntDis : wcs = ???
+|  |  |  |  _CPU_IntEn : wcs = ???
+|  |  |  _CPU_Init : wcs = 2
+|  |  |  _OSInit : wcs = 56
+|  |  |  |  _OSDebugInit : wcs = 4
+|  |  |  |  _OSInitHookBegin : wcs = 2
+|  |  |  |  _OSInitHookEnd : wcs = 2
+|  |  |  |  _OS_FlagInit : wcs = 14
+|  |  |  |  |  _OS_MemClr : wcs = 6
+|  |  |  |  _OS_InitEventList : wcs = 14
+|  |  |  |  |  _OS_MemClr : wcs = 6
+|  |  |  |  _OS_InitMisc : wcs = 2
+|  |  |  |  _OS_InitRdyList : wcs = 4
+|  |  |  |  _OS_InitTCBList : wcs = 14
+|  |  |  |  |  _OS_MemClr : wcs = 6
+|  |  |  |  _OS_InitTaskIdle : wcs = 54
+|  |  |  |  |  _OSTaskCreateExt : wcs = 36
+|  |  |  |  |  |  <repeat ...>
+|  |  |  |  |  _OSTaskNameSet : wcs = 10
+|  |  |  |  |  |  _OS_CPU_SR_Restore : wcs = ???
+|  |  |  |  |  |  _OS_CPU_SR_Save : wcs = ???
+|  |  |  |  _OS_InitTaskStat : wcs = 54
+|  |  |  |  |  _OSTaskCreateExt : wcs = 36
+|  |  |  |  |  |  <repeat ...>
+|  |  |  |  |  _OSTaskNameSet : wcs = 10
+|  |  |  |  |  |  <repeat ...>
+|  |  |  |  _OS_MemInit : wcs = 12
+|  |  |  |  |  _OS_MemClr : wcs = 6
+|  |  |  |  _OS_QInit : wcs = 14
+|  |  |  |  |  _OS_MemClr : wcs = 6
+|  |  |  _OSStart : wcs = 6
+|  |  |  |  _OSStartHighRdy : wcs = ???
+|  |  |  |  _OS_SchedNew : wcs = 4
+|  |  |  _OSTaskCreateExt : wcs = 36
+|  |  |  |  <repeat ...>
+|  __system_post_cinit : wcs = 2
+|  __system_pre_init : wcs = 2
+|  _copy_in : wcs = 18
+|  |  _memcpy : wcs = 2
+|  _exit : wcs = 6
+|  |  _abort : wcs = 2
+|  |  ___TI_pprof_out_hndl : wcs = ???
+
+_calloc : wcs = 22
+|  ( _aligned_alloc
+     _memalign ) : wcs = 14
+|  |  <repeat ...>
+|  _memset : wcs = 2
+
+_epwm1_isr : wcs = 6
+
+_epwm3_isr : wcs = 6
+
+_fclose : wcs = 50
+|  ___TI_closefile : wcs = 46
+|  |  <repeat ...>
+
+_fflush : wcs = 16
+|  ___TI_doflush : wcs = 6
+|  |  <repeat ...>
+
+_fopen : wcs = 52
+|  __openfile : wcs = 44
+|  |  _open : wcs = 40
+|  |  |  _getdevice : wcs = 28
+|  |  |  |  <repeat ...>
+
+_freopen : wcs = 56
+|  ___TI_closefile : wcs = 46
+|  |  <repeat ...>
+|  __openfile : wcs = 44
+|  |  <repeat ...>
+
+_minit : wcs = 2
+
+_realloc : wcs = 24
+|  ( _aligned_alloc
+     _memalign ) : wcs = 14
+|  |  <repeat ...>
+|  _free : wcs = 6
+|  |  <repeat ...>
+|  _free_list_remove : wcs = 2
+|  _memcpy : wcs = 2
+|  _split : wcs = 6
+|  |  <repeat ...>
+
+_rsvd_ISR : wcs = 6
+
+
+The following functions are known to contain indirect function calls, but
+do not contain any information about those indirect calls in the configuration
+file specified with --i_cfg=file.  Run "perldoc call_graph.pl" for more
+information.
+======================================================================
+
+_HOSTclose
+_HOSTlseek
+_HOSTopen
+_HOSTread
+_HOSTrename
+_HOSTunlink
+_HOSTwrite
+___TI_closefile
+___TI_heap_largest_available
+___TI_heap_total_available
+( _aligned_alloc _memalign )
+_c_int00
+_close
+_exit
+_fclose
+_fflush
+_fopen
+_fputs
+_free
+_freopen
+_fseek
+_lseek
+_open
+_realloc
+_setvbuf
+_unlink
+_write
